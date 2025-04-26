@@ -79,6 +79,80 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
+.navbar-toggler {
+  display: flex;
+}
+.navbar-toggler span {
+  width: 25px;
+  height: 3px;
+  background: #002147;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+
+.navbar-collapse {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  z-index: 1020;
+}
+.navbar-collapse.open {
+  max-height: 300px; /* ajusta si necesitas más espacio */
+}
+
+/* ─── LINKS EN MÓVIL ──────────────────────────────────────────────────────── */
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.navbar-nav .nav-item {
+  margin-bottom: 0.75rem;
+}
+.navbar-nav .nav-link {
+  color: #002147;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+.navbar-nav .nav-link:hover {
+  background: rgba(0,162,218,0.1);
+}
+
+/* ─── OCULTAR HAMBURGUESA EN ESCRITORIO ───────────────────────────────────── */
+@media (min-width: 769px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar-collapse {
+    position: static;
+    transform: none;
+    width: auto;
+    max-height: none;
+    background: transparent;
+    backdrop-filter: none;
+    display: flex !important;
+  }
+  .navbar-nav {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0;
+  }
+  .navbar-nav .nav-item {
+    margin: 0;
+  }
+}
+
+
+
 .hero {
   position: relative;
   width: 100%;
