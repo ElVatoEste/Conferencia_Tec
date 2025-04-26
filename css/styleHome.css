@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth; /* alternativa CSS al smooth scroll */
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 1140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  z-index: 1030;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Cuando baja del hero (fondo claro), pasamos a gris para contraste */
+.navbar.scrolled {
+  background: rgba(128,128,128,0.7);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+.navbar-nav .nav-item {
+  margin-bottom: 0.5rem;
+}
+.navbar-nav .nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+
+}
+
+/* Asegura que el .container del navbar sea un flex centrado */
+.navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* En desktop, alinear los enlaces al centro */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Ajusta el padding vertical de los enlaces si fuera necesario */
+.navbar-nav .nav-link {
+  padding: 0.75rem 1rem;
+}
+
+
+.navbar-nav .nav-link:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  padding-top: 40%;
+  background: url("../img/fondopagina.jpeg") center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+
+section {
+  padding: 4rem 1rem;
+}
+section.bg-light {
+  background-color: #f8f9fa;
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #111;
+  color: #ddd;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ─── TIPOGRAFÍA GLOBAL ─────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ─── ENCABEZADOS ─────────────────────────────────────────────────────────── */
+#sobre-uam h2,
+#sobre-uam h3 {
+  font-family: 'Merriweather', serif;
+  color: #002147; /* color institucional */
+  margin-bottom: 0.5rem;
+}
+
+#sobre-uam h2 {
+  font-size: 2rem;
+}
+
+#sobre-uam h3 {
+  font-size: 1.75rem;
+}
+
+/* ─── GRID PARA MISIÓN Y VISIÓN ───────────────────────────────────────────── */
+.contenedor-dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+/* ─── PÁRRAFOS JUSTIFICADOS ───────────────────────────────────────────────── */
+.breve-descripcion {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.breve-descripcion p {
+  margin-bottom: 1rem;
+}
+
+/* ─── ESPACIADO DE LA SECCIÓN ──────────────────────────────────────────────── */
+#sobre-uam {
+  padding: 4rem 1rem;
+}
+
+/* ─── ESTILO DE TITULO DE SECCIÓN ──────────────────────────────────────────── */
+#sobre-uam > h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #002147;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contenedor-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0.5rem 2rem;
+  }
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar-collapse {
+    position: static;
+    display: block !important;
+    max-height: none;
+    background: transparent;
+    backdrop-filter: none;
+    margin: 0;
+  }
+  .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-nav .nav-item {
+    margin: 0 0.5rem;
+  }
+  .navbar-nav .nav-link {
+    color: #fff;
+    background: none;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* ─── SLIDER DE ACTIVIDADES ───────────────────────────────────────────────── */
+/* Contenedor: ancho definido por la imagen, centrado en la página */
+.eventos-slider {
+  position: relative;
+  margin: 2rem auto;
+  width: auto;
+  overflow: hidden;
+}
+
+/* Slides ocultos por defecto */
+.eventos-slider .slide {
+  display: none;
+}
+
+/* Slide activo: flex-col centrado y animación */
+.eventos-slider .slide.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Keyframes para fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Tarjeta artículo centrada */
+.eventos-slider .slide .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Imagen proporcional de 400px de alto, ancho ajustado */
+.eventos-slider .slide .card-img {
+  height: 400px;
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Contenido textual debajo de la imagen */
+.eventos-slider .slide .card-content {
+  padding: 1rem;
+  text-align: center;
+}
+.eventos-slider .slide .card-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.eventos-slider .slide .card-excerpt,
+.eventos-slider .slide .card-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+/* Botones prev/next */
+.slider-prev,
+.slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.slider-prev { left: 0; }
+.slider-next { right: 0; }
+.slider-prev:hover,
+.slider-next:hover {
+  background: rgba(0,0,0,0.8);
+}
